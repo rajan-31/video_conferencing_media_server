@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+  redis:
+    image: redis:alpine
+    container_name: livekit-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./volumes/redis:/data
+    command: redis-server --appendonly yes
+
+  egress:
+    image: livekit/egress
+    container_name: livekit-egress
+    depends_on:
+      - redis
+    environment:
+      EGRESS_CONFIG_FILE: /out/config.yaml
+      LOG_LEVEL: debug                  # Development: set to debug
+    volumes:
+      - ./volumes/egress:/out/       # Map local folder for storing egress files
+    ports:
+      - "7980:7980"                    # Optional: expose egress service (if needed)
+    cap_add:
+      - SYS_ADMIN

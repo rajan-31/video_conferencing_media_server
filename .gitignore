@@ -1,1 +1,7 @@
 logs.txt
+
+volumes/egress/*
+volumes/redis/*
+
+!volumes/egress/.gitkeep
+!volumes/redis/.gitkeep

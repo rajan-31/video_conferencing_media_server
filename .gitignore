@@ -1,7 +1,11 @@
 logs.txt
 
+volumes/livekit/*
 volumes/egress/*
 volumes/redis/*
 
+!volumes/livekit/.gitkeep
+!volumes/livekit/livekit_config.yaml
 !volumes/egress/.gitkeep
+!volumes/egress/egress_config.yaml
 !volumes/redis/.gitkeep

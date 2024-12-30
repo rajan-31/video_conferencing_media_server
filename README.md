@@ -21,6 +21,10 @@ API secret: secret
 
 `docker-compose up`
 
+### To acess terminal
+
+`docker exec -it livekit-egress bash`
+
 ---
 
 <!-- 
